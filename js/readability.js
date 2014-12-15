@@ -1142,7 +1142,7 @@ var readability = {
             var del = false;
 
             /* If this is purely a number, and it's the first or second segment, it's probably a page number. Remove it. */
-            if (i < 2 && segment.match(/^\d{1,2}$/)) {
+            if (i < 2 && segment.match(/^\d{1,2}$/) && !window.location.host.match(/zeit/)) {
                 del = true;
             }
 
