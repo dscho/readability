@@ -57,7 +57,7 @@ var readability = {
         killBreaks:            /(<br\s*\/?>(\s|&nbsp;?)*){1,}/g,
         videos:                /http:\/\/(www\.)?(youtube|vimeo)\.com/i,
         skipFootnoteLink:      /^\s*(\[?[a-z0-9]{1,2}\]?|^|edit|citation needed)\s*$/i,
-        nextLink:              /(next|weiter|continue|>([^\|]|$)|»([^\|]|$))/i, // Match: next, continue, >, >>, » but not >|, »| as those usually mean last.
+        nextLink:              /(next|weiter|vorwärts|continue|>([^\|]|$)|»([^\|]|$))/i, // Match: next, continue, >, >>, » but not >|, »| as those usually mean last.
         prevLink:              /(prev|earl|old|new|<|«)/i
     },
 
@@ -1233,10 +1233,10 @@ var readability = {
             if(linkData.match(readability.regexps.nextLink)) {
                 linkObj.score += 50;
             }
-            if(linkData.match(/pag(e|ing|inat)/i)) {
+            if(linkData.match(/(pag(e|ing|inat)|seite)/i)) {
                 linkObj.score += 25;
             }
-            if(linkData.match(/(first|last)/i)) { // -65 is enough to negate any bonuses gotten from a > or » in the text,
+            if(linkData.match(/(first|last|erste|letzte)/i)) { // -65 is enough to negate any bonuses gotten from a > or » in the text,
                 /* If we already matched on "next", last is probably fine. If we didn't, then it's bad. Penalize. */
                 if(!linkObj.linkText.match(readability.regexps.nextLink)) {
                     linkObj.score -= 65;
@@ -1255,7 +1255,7 @@ var readability = {
                 negativeNodeMatch = false;
             while(parentNode) {
                 var parentNodeClassAndId = parentNode.className + ' ' + parentNode.id;
-                if(!positiveNodeMatch && parentNodeClassAndId && parentNodeClassAndId.match(/pag(e|ing|inat)/i)) {
+                if(!positiveNodeMatch && parentNodeClassAndId && parentNodeClassAndId.match(/(pag(e|ing|inat)|seite)/i)) {
                     positiveNodeMatch = true;
                     linkObj.score += 25;
                 }
@@ -1274,7 +1274,7 @@ var readability = {
              * If the URL looks like it has paging in it, add to the score.
              * Things like /page/2/, /pagenum/2, ?p=3, ?page=11, ?pagination=34
             **/
-            if (linkHref.match(/p(a|g|ag)?(e|ing|ination)?(=|\/)[0-9]{1,2}/i) || linkHref.match(/(page|paging)/i)) {
+            if (linkHref.match(/p(a|g|ag)?(e|ing|ination)?(=|\/)[0-9]{1,2}/i) || linkHref.match(/(page|paging|seite)/i)) {
                 linkObj.score += 25;
             }
 
