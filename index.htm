@@ -19,23 +19,6 @@
   <script src="js/jquery.fancybox-1.2.6.pack.js" type="text/javascript" charset="utf-8"></script>
   <script type="text/javascript" src="https://use.typekit.com/thw1vhb.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <script type="text/javascript">
-    languagesAvailable  = ['es'];
-    language            = (navigator.language || navigator.userLanguage);
-    languageCode        = language.replace(/-.*/,'').toLowerCase();
-    if(languageCode != 'en') {
-      languageIsAvailable = false;
-      for(l in languagesAvailable) {
-        if(languagesAvailable[l] == languageCode) {
-          languageIsAvailable = true;
-          break;
-        }
-      }
-      if(languageIsAvailable) {
-        window.location = "http://lab.arc90.com/experiments/readability/" + languageCode;
-      }
-    }
-  </script>
 </head>
 <body>
 
@@ -44,30 +27,8 @@
     <h1>Readability&trade;<span class="secondary-title"> &mdash; An Arc90 Laboratory Experiment</span></h1>
 
     <div id="introduction">
-      <p><em>Readability</em>&trade; is a simple tool that makes reading on the Web more enjoyable by removing the clutter around what you're reading. Follow the steps below to install <em>Readability</em>&trade; in your Web browser.</p>
+      <p><em>Readability</em>&trade; is a simple tool that makes reading on the Web more enjoyable by removing the clutter around what you're reading. Simply drag 'n drop the bookmarklet to your bookmark bar.</p>
     </div>  <!-- End #introduction -->
-
-    <div id="watch-video">
-      <a href="#video-other" class="video" title="Installation Instructions" id="video-instruction"><img src="images/badge-video.png" width="104" height="104" alt="Installation Instructions Icon"></a>
-
-      <div id="video-ie" style="display:none;">
-        <object width="480" height="360">
-          <param name="allowfullscreen" value="true">
-          <param name="allowscriptaccess" value="always">
-          <param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=8798529&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1">
-          <embed src="http://vimeo.com/moogaloop.swf?clip_id=8798529&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="480" height="360"></embed>
-        </object>
-      </div>  <!-- End #video-ie -->
-
-      <div id="video-other" style="display:none;">
-        <object width="480" height="360">
-          <param name="allowfullscreen" value="true">
-          <param name="allowscriptaccess" value="always">
-          <param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=8798492&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1">
-          <embed src="http://vimeo.com/moogaloop.swf?clip_id=8798492&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=00ADEF&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="480" height="360"></embed>
-        </object>
-      </div>  <!-- End #video-other -->
-    </div>
 
     <div class="meta">
       <a href="http://www.arc90.com/" class="arc90"><img src="images/logo-arc90-large.png" width="107" height="41" alt="Arc90" title="Arc90"></a>
