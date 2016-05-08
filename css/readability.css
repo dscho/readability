@@ -42,7 +42,7 @@ a.rdbTK-powered span{display:inline-block;height:22px;margin-left:2px;background
 #reload-page{background-position:0 0;}
 #print-page{background-position:-36px 0;}
 #email-page{background-position:-72px 0;}
-#kindle-page{background-position:-108px 0;}
+#kindle-page,#toggle-night-view{background-position:-108px 0;}
 #readTools a:hover,#readTools a:focus{opacity:1;filter:alpha(opacity=100);}
 /* @group User Styles */
 /* Size */

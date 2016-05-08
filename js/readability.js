@@ -254,6 +254,15 @@ var readability = {
         }
     },
 
+    toggleNightView: function () {
+        var overlay = document.getElementById('readOverlay');
+        var style = window.getComputedStyle(overlay);
+        var background = '' + style.backgroundColor;
+        var foreground = '' + style.color;
+        overlay.style.backgroundColor =  foreground;
+        overlay.style.color = background;
+    },
+
     /**
      * Get the article tools Element that has buttons like reload, print, email.
      *
@@ -265,7 +274,9 @@ var readability = {
         articleTools.id        = "readTools";
         articleTools.innerHTML =
             "<a href='#' onclick='return window.location.reload()' title='Reload original page' id='reload-page'>Reload Original Page</a>" +
-        "<a href='#' onclick='javascript:window.print();' title='Print page' id='print-page'>Print Page</a>";
+        "<a href='#' onclick='javascript:window.print();' title='Print page' id='print-page'>Print Page</a>" +
+        "<a href='#' onclick='javascript:readability.toggleNightView();' title='Toggle night/day view' id='toggle-night-view'>Toggle night/day view</a>";
+
         return articleTools;
     },
 
