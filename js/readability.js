@@ -78,6 +78,11 @@ var readability = {
         window.onload = window.onunload = function() {};
 
         readability.removeScripts(document);
+	/* Kill all setInterval()'ed functions */
+        for (var i = 1; i < 99999; i++)
+            window.clearInterval(i);
+        if (window.jQuery)
+            $(window).unbind('scroll.spArticleOverscroll');
 
         if(document.body && !readability.bodyCache) {
             readability.bodyCache = document.body.innerHTML;
